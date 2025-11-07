@@ -1,0 +1,188 @@
+/*
+ * Archivo: CSS/EjercicioC.css (Ajuste de centrado y tamaño final)
+ */
+
+/* --- Estilos Generales y Tipografía --- */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  padding: 20px;
+  text-align: center;
+}
+
+main {
+  max-width: 1000px; /* Reducido para centrar mejor el bloque de contenido principal */
+  margin: 0 auto;
+}
+
+h1 {
+  color: #007bff;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+/* --- Contenedor Principal (Flexbox para las 2 Columnas) --- */
+.main-content {
+  display: flex;
+  justify-content: center; /* Centra el bloque general dentro del main */
+  gap: 40px;
+  margin-top: 25px;
+}
+
+/* --- 1. COLUMNA IZQUIERDA: Clases A, B, C, D, E (#classes-display) --- */
+#classes-display {
+  width: 380px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+#classes-display:hover {
+  transform: translateY(-2px);
+}
+
+#classes-display h3 {
+  color: #555;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 15px;
+  margin-top: 0;
+  font-size: 1.4em;
+  font-weight: 400;
+}
+
+/* Contenedor de Cada Clase */
+.class-image-container {
+  margin-bottom: 18px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 10px 15px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fafafa;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+.class-image-container:hover {
+  background-color: #f7f7ff;
+  border-color: #007bff;
+}
+
+.class-image-container p {
+  margin: 0;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #333;
+}
+
+/* IMAGENES DE CLASE MÁS GRANDES (Ajuste final) */
+.class-image-container img {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 3px solid #007bff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+/* --- 2. COLUMNA DERECHA: Webcam y Controles (#webcam-and-controls) --- */
+#webcam-and-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Contenedor del Video/Canvas */
+#video-container {
+  width: 380px; /* Igual al ancho de #classes-display */
+  height: 320px; /* Aumentamos la altura para asegurar espacio para la etiqueta de clasificación */
+  border: 3px solid #007bff;
+  background-color: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Controles de Voz */
+#controls {
+  width: 380px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  text-align: left;
+}
+#controls:hover {
+  transform: translateY(-2px);
+}
+
+#controls h2 {
+  color: #007bff;
+  margin-top: 0;
+  font-size: 1.5em;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Estilos de los Sliders (Input Range) */
+input[type="range"] {
+  width: 100%;
+  margin-top: 5px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: #007bff;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 10px;
+  background: #d1e7ff;
+  border-radius: 5px;
+}
+
+/* Botón de Hablar */
+#speak {
+  width: 100%;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  margin-top: 15px;
+}
+#speak:hover {
+  background-color: #1e7e34;
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.4);
+}
+
+/* Media Query para hacerlo responsivo */
+@media (max-width: 850px) {
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  #classes-display,
+  #controls,
+  #video-container {
+    width: 90%;
+    max-width: 380px;
+  }
+}
