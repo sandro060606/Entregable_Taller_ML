@@ -1,35 +1,23 @@
-/* 1. ESTILOS GLOBALES Y CENTRADO DE LA PÁGINA */
 body {
-  /* Familia de fuente */
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  /* Color de fondo suave */
   background-color: #e9ecef;
-
-  /* Centrar el contenido en la vista */
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Ocupa al menos el alto de la ventana */
+  min-height: 100vh;
   margin: 0;
-
-  /* Márgenes superior/inferior */
   padding: 20px 0;
 }
-
-/* 2. CONTENEDOR PRINCIPAL (LA TARJETA DE LOGIN) */
 .login-card {
   background-color: white;
   padding: 40px;
   border-radius: 12px;
-  /* Sombra para que se vea como una tarjeta, como en tus imágenes */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   max-width: 450px;
   width: 100%;
   margin-top: 20px;
   margin-bottom: 20px;
 }
-
-/* 3. ESTILO DEL TÍTULO */
 .app-title {
   color: #007bff;
   font-weight: 300;
@@ -38,33 +26,22 @@ body {
   border-bottom: 2px solid #f0f0f0;
   padding-bottom: 15px;
 }
-
-/* 4. ESTILOS DEL CANVAS Y SU CONTENEDOR (SOLUCIÓN AL 100% DE ANCHO) */
-
 #contenedor-canvas {
   border: 2px solid #adb5bd;
   border-radius: 6px;
   margin-top: 5px;
   overflow: hidden;
-  /* CLAVE: Elimina el espacio interno que impida dibujar al borde */
   padding: 0;
-  height: 300px; /* Altura fija */
-
-  /* SOLUCIÓN AL CURSOR DE TEXTO */
+  height: 300px;
   cursor: default;
   -webkit-user-select: none;
   user-select: none;
 }
-
-/* Estilo para el Canvas de P5.js */
 #contenedor-canvas canvas {
   display: block;
-  /* CLAVE: Fuerza el 100% de ancho, sobreescribiendo el tamaño fijo de P5.js */
   width: 100% !important;
   height: 100% !important;
 }
-
-/* 5. OTROS AJUSTES */
 #codigo {
   display: none;
 }

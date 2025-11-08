@@ -15,7 +15,6 @@ const videoContainer = document.querySelector("#video-container");
 function preload() {
   classifier = ml5.imageClassifier(imageModelURL + "model.json");
 }
-
 function setup() {
   canvas = createCanvas(
     videoContainer.offsetWidth,
@@ -25,7 +24,6 @@ function setup() {
   video = createCapture(VIDEO);
   video.size(videoContainer.offsetWidth, videoContainer.offsetHeight);
   video.hide();
-
   flippedVideo = ml5.flipImage(video);
   classifyVideo();
 }
@@ -33,19 +31,16 @@ function setup() {
 function draw() {
   background(0);
   image(flippedVideo, 0, 0);
-
   fill(255);
   textSize(25);
   textAlign(CENTER);
   text(label, width / 2, height - 15);
 }
-
 function classifyVideo() {
   flippedVideo = ml5.flipImage(video);
   classifier.classify(flippedVideo, gotResult);
   flippedVideo.remove();
 }
-
 function gotResult(error, results) {
   if (error) {
     console.error(error);
@@ -55,7 +50,6 @@ function gotResult(error, results) {
   speakLabel = results[0].label;
   classifyVideo();
 }
-
 speechSynthesis.addEventListener("voiceschanged", () => {
   const voices = speechSynthesis.getVoices();
   const option = voices.map((voice, index) => {
@@ -63,15 +57,12 @@ speechSynthesis.addEventListener("voiceschanged", () => {
   });
   voiceOptions.innerHTML += option.join("");
 });
-
 startButton.addEventListener("click", () => {
   const message = new SpeechSynthesisUtterance(speakLabel);
   const index = voiceOptions.selectedIndex;
-
   message.voice = speechSynthesis.getVoices()[index];
   message.pitch = parseFloat(pitchInput.value);
   message.rate = parseFloat(rateInput.value);
   message.volume = parseFloat(volumeInput.value);
-
   speechSynthesis.speak(message);
 });

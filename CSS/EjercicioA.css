@@ -7,7 +7,6 @@ body {
   min-height: 100vh;
   margin: 0;
 }
-
 .app-card {
   background-color: white;
   padding: 40px;
@@ -16,7 +15,6 @@ body {
   max-width: 700px;
   width: 100%;
 }
-
 .app-title {
   color: #007bff;
   font-weight: 300;
@@ -24,12 +22,10 @@ body {
   border-bottom: 2px solid #f0f0f0;
   padding-bottom: 15px;
 }
-
 #contenedor {
   text-align: center;
   margin-bottom: 30px;
 }
-
 canvas {
   display: block;
   margin-left: auto;
@@ -40,11 +36,9 @@ canvas {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
-
 canvas:hover {
   transform: scale(1.01);
 }
-
 .task-label {
   display: block; 
   margin-bottom: 8px;
@@ -52,25 +46,21 @@ canvas:hover {
   color: #495057;
   font-weight: 600;
 }
-
 #file-input {
   max-width: 400px; 
   margin: 0 auto; 
   display: block;
 }
-
 .results-area {
   text-align: left;
   padding: 15px;
   border-top: 1px solid #dee2e6;
 }
-
 #results p {
   font-size: 1.15em;
   font-weight: 500;
   margin-bottom: 5px;
 }
-
 .results-area b {
   color: #495057;
   margin-right: 5px;

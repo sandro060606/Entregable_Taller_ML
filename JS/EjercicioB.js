@@ -54,9 +54,7 @@ function clearCanvas() {
 
 formulario.addEventListener("submit", (event) => {
   event.preventDefault();
-
   const codigoDibujo = CanvasLabel.trim();
-
   for (let i = 0; i < listaUsuarios.length; i++) {
     const user = listaUsuarios[i];
     if (listaUsuarios[i].nombre === usuario.value) {
