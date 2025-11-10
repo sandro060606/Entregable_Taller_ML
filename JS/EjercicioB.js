@@ -7,7 +7,6 @@ const listaUsuarios = [
 const formulario = document.querySelector("#form-login");
 const usuario = document.querySelector("#usuario");
 const password = document.querySelector("#password");
-const resultsDiv = document.querySelector("#results");
 const mlLabelDiv = document.querySelector("#ml-label");
 const clearButton = document.getElementById("clear-btn");
 
@@ -49,20 +48,18 @@ function gotResult(results) {
 function clearCanvas() {
   background(255);
   CanvasLabel = "";
-  resultsDiv.innerHTML = "";
 }
 
 formulario.addEventListener("submit", (event) => {
   event.preventDefault();
   const codigoDibujo = CanvasLabel.trim();
   for (let i = 0; i < listaUsuarios.length; i++) {
-    const user = listaUsuarios[i];
     if (listaUsuarios[i].nombre === usuario.value) {
       if (
         listaUsuarios[i].clave === password.value &&
         listaUsuarios[i].codigo === codigoDibujo
       ) {
-        alert(`¡Bienvenido ${user.nombre}! Acceso concedido`);
+        alert(`¡Bienvenido ${listaUsuarios[i].nombre}! Acceso concedido`);
         return;
       }
     }

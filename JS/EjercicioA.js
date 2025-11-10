@@ -13,20 +13,20 @@ function setup() {
   canvas = createCanvas(400, 400);
   canvas.parent("contenedor");
   background(220);
-  noLoop();
 }
 function handleFileSelect(event) {
   const file = event.target.files[0];
   if (file) {
     imgURL = URL.createObjectURL(file);
-    img = loadImage(imgURL, function () {
-      img.resize(400, 400);
-      crearLabel();
-      classifier.classify(img, gotResult);
-      background(255);
-      image(img, 0, 0, width, height);
-    });
+    img = loadImage(imgURL, afterloadImage)
   }
+}
+function afterloadImage() {
+  img.resize(400, 400);
+  crearLabel();
+  classifier.classify(img, gotResult);
+  background(255);
+  image(img, 0, 0, width, height);
 }
 function crearLabel() {
   if (!label) {
