@@ -13,6 +13,7 @@ const clearButton = document.getElementById("clear-btn");
 let classifier;
 let canvas;
 let CanvasLabel = "";
+let CanvasConfidence = 0;
 
 function preload() {
   classifier = ml5.imageClassifier("DoodleNet");
@@ -38,6 +39,7 @@ function gotResult(results) {
   let label = results[0].label;
   let confidence = results[0].confidence;
   CanvasLabel = label;
+  CanvasConfidence = confidence;
   mlLabelDiv.innerHTML = `Dibujaste: <b>${label}</b> (${nf(
     confidence * 100,
     0,
@@ -48,21 +50,28 @@ function gotResult(results) {
 function clearCanvas() {
   background(255);
   CanvasLabel = "";
+  CanvasConfidence = 0;
 }
 
 formulario.addEventListener("submit", (event) => {
   event.preventDefault();
   const codigoDibujo = CanvasLabel.trim();
+  const confianzaDibujo = CanvasConfidence;
+
   for (let i = 0; i < listaUsuarios.length; i++) {
+
     if (listaUsuarios[i].nombre === usuario.value) {
       if (
         listaUsuarios[i].clave === password.value &&
-        listaUsuarios[i].codigo === codigoDibujo
+        listaUsuarios[i].codigo === codigoDibujo &&
+        confianzaDibujo >= 0.7
       ) {
         alert(`¡Bienvenido ${listaUsuarios[i].nombre}! Acceso concedido`);
         return;
       }
     }
   }
-  alert(`Login fallido. Usuario, contraseña o código incorrecto`);
+  alert(
+    `Login fallido. Usuario, contraseña, código o confianza del dibujo incorrecta (requerido: 70%)`
+  );
 });
